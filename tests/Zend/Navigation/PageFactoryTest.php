@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * Tests Zend_Navigation_Page::factory()
@@ -30,8 +31,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Navigation
  */
+#[Group('Zend_Navigation')]
 class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
 {
     protected $_oldIncludePath;
@@ -79,7 +80,7 @@ class Zend_Navigation_PageFactoryTest extends PHPUnit\Framework\TestCase
             )),
         );
 
-        $this->assertContainsOnly('Zend_Navigation_Page_Mvc', $pages);
+        $this->assertContainsOnlyInstancesOf('Zend_Navigation_Page_Mvc', $pages);
     }
 
     public function testDetectUriPage()

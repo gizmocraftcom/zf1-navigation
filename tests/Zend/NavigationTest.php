@@ -20,6 +20,7 @@
  * @version    $Id:$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @category   Zend
@@ -27,8 +28,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Navigation
  */
+#[Group('Zend_Navigation')]
 class Zend_NavigationTest extends PHPUnit\Framework\TestCase
 {
     /**
@@ -51,9 +52,9 @@ class Zend_NavigationTest extends PHPUnit\Framework\TestCase
     /**
      * Testing that navigation order is done correctly
      *
-     * @group   ZF-8337
-     * @group   ZF-8313
      */
+    #[Group('ZF-8337')]
+    #[Group('ZF-8313')]
     public function testNavigationArraySortsCorrectly()
     {
         $page1 = new Zend_Navigation_Page_Uri(array('uri' => 'page1'));

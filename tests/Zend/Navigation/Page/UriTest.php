@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * Tests the class Zend_Navigation_Page_Uri
@@ -29,8 +30,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Navigation
  */
+#[Group('Zend_Navigation')]
 class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
 {
     public function testUriOptionAsString()
@@ -90,9 +91,7 @@ class Zend_Navigation_Page_UriTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($uri, $page->getHref());
     }
 
-    /**
-     * @group ZF-8922
-     */
+    #[Group('ZF-8922')]
     public function testGetHrefWithFragmentIdentifier()
     {
         $uri = 'http://www.example.com/foo.html';

@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * Tests the class Zend_Navigation_Page
@@ -30,8 +31,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Navigation
  */
+#[Group('Zend_Navigation')]
 class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
 {
     /**
@@ -159,9 +160,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group ZF-8922
-     */
+    #[Group('ZF-8922')]
     public function testSetAndGetFragmentIdentifier()
     {
         $page = Zend_Navigation_Page::factory(array(
@@ -293,9 +292,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group ZF-9746
-     */
+    #[Group('ZF-9746')]
     public function testSetAndGetAccesskey()
     {
         $page = Zend_Navigation_Page::factory(array(
@@ -1153,9 +1150,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $page->getCustomProperties());
     }
 
-    /**
-     * @group ZF-11876
-     */
+    #[Group('ZF-11876')]
     public function testSetCustomHtmlAttrib()
     {
         $page = Zend_Navigation_Page::factory(
@@ -1169,9 +1164,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('nofollow', $page->getCustomHtmlAttrib('rel'));
     }
 
-    /**
-     * @group ZF-11876
-     */
+    #[Group('ZF-11876')]
     public function testSetCustomHtmlAttribWithNull()
     {
         $page = Zend_Navigation_Page::factory(
@@ -1186,9 +1179,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertNull($page->getCustomHtmlAttrib('rel'));
     }
 
-    /**
-     * @group ZF-11876
-     */
+    #[Group('ZF-11876')]
     public function testSetCustomHtmlAttribs()
     {
         $page = Zend_Navigation_Page::factory(
@@ -1207,9 +1198,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($attribs, $page->getCustomHtmlAttribs());
     }
 
-    /**
-     * @group ZF-11876
-     */
+    #[Group('ZF-11876')]
     public function testRemoveCustomHtmlAttrib()
     {
         $page = Zend_Navigation_Page::factory(
@@ -1224,9 +1213,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(array(), $page->getCustomHtmlAttribs());
     }
 
-    /**
-     * @group ZF-11876
-     */
+    #[Group('ZF-11876')]
     public function testClearCustomHtmlAttribs()
     {
         $page = Zend_Navigation_Page::factory(
@@ -1358,9 +1345,7 @@ class Zend_Navigation_PageTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($options, $toArray['pages'][1]);
     }
 
-    /**
-     * @group ZF-11805
-     */
+    #[Group('ZF-11805')]
     public function testFactoryExceptionWhenNoPageTypeDetected()
     {
         // Without label

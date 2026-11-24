@@ -20,6 +20,7 @@
  * @version    $Id$
  */
 
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * Tests the class Zend_Navigation_Page_Mvc
@@ -29,8 +30,8 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_Navigation
  */
+#[Group('Zend_Navigation')]
 class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
 {
     /**
@@ -114,9 +115,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('/lolcat/myaction/1337', $page->getHref());
     }
 
-    /**
-     * @group ZF-8922
-     */
+    #[Group('ZF-8922')]
     public function testGetHrefWithFragmentIdentifier()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -277,9 +276,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(true, $page->isActive());
     }
 
-    /**
-     * @group ZF-11664
-     */
+    #[Group('ZF-11664')]
     public function testIsActiveWithoutAndWithRecursiveOption()
     {
         // Parent
@@ -415,9 +412,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(array(), $page->getParams());
     }
 
-    /**
-     * @group ZF-10727
-     */
+    #[Group('ZF-10727')]
     public function testSetAndGetParam()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -434,9 +429,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(null, $page->getParam('null'));
     }
 
-    /**
-     * @group ZF-10727
-     */
+    #[Group('ZF-10727')]
     public function testAddParams()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -456,9 +449,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(array_merge($params, $params2), $page->getParams());
     }
 
-    /**
-     * @group ZF-10727
-     */
+    #[Group('ZF-10727')]
     public function testRemoveParam()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -477,9 +468,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertNull($page->getParam('foo'));
     }
 
-    /**
-     * @group ZF-10727
-     */
+    #[Group('ZF-10727')]
     public function testClearParams()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -496,9 +485,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(array(), $page->getParams());
     }
 
-    /**
-     * @group ZF-11664
-     */
+    #[Group('ZF-11664')]
     public function testSetActiveAndIsActive()
     {
         // Page
@@ -519,9 +506,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertFalse($page->isActive());
     }
 
-    /**
-     * @group ZF-10465
-     */
+    #[Group('ZF-10465')]
     public function testSetAndGetEncodeUrl()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -534,9 +519,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(false, $page->getEncodeUrl());
     }
 
-    /**
-     * @group ZF-10465
-     */
+    #[Group('ZF-10465')]
     public function testEncodeUrlIsRouteAware()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -567,9 +550,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('/pagexy/subpage.html', $page->getHref());
     }
 
-    /**
-     * @group ZF-7794
-     */
+    #[Group('ZF-7794')]
     public function testSetScheme()
     {
         $page = new Zend_Navigation_Page_Mvc();
@@ -578,9 +559,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('https', $page->getScheme());
     }
 
-    /**
-     * @group ZF-7794
-     */
+    #[Group('ZF-7794')]
     public function testOptionScheme()
     {
         $page = new Zend_Navigation_Page_Mvc(
@@ -592,9 +571,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('https', $page->getScheme());
     }
 
-    /**
-     * @group ZF-7794
-     */
+    #[Group('ZF-7794')]
     public function testHrefGeneratedWithScheme()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -609,9 +586,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @group ZF-7794
-     */
+    #[Group('ZF-7794')]
     public function testHrefGeneratedWithSchemeIsRouteAware()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -705,9 +680,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @group ZF-7794
-     */
+    #[Group('ZF-7794')]
     public function testSpecifyingAnotherSchemeHelperToGenerateHrefs()
     {
         $path = dirname(dirname(__FILE__)) . '/_files/My/SchemeHelper.php';
@@ -731,9 +704,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @group ZF-11550
-     */
+    #[Group('ZF-11550')]
     public function testNullValuesInMatchedRouteWillStillReturnMatchedPage()
     {
         $page = new Zend_Navigation_Page_Mvc(array(
@@ -774,9 +745,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertEquals(true, $page->isActive());
     }
 
-    /**
-     * @group ZF-12414
-     */
+    #[Group('ZF-12414')]
     public function testNullValueInParameters()
     {
         // Create pages
@@ -831,9 +800,7 @@ class Zend_Navigation_Page_MvcTest extends PHPUnit\Framework\TestCase
         $this->assertFalse($pages['home']->isActive());
     }
 
-    /**
-     * @group ZF-11442
-     */
+    #[Group('ZF-11442')]
     public function testIsActiveIsChainedRouteAware()
     {
         // Create page
